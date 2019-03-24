@@ -25,9 +25,9 @@ public class UsuarioResource {
         return ResponseEntity.ok(usuarioService.listar().collect(Collectors.toList()));
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Usuario> usuario(@PathVariable(name = "id") Long id) {
-        return ResponseEntity.ok(usuarioService.buscarPorId(id));
-    }
+//    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<Usuario> usuario(@PathVariable(name = "id") Long id) {
+//        return ResponseEntity.ok(usuarioService.buscarPorId(id));
+//    }
 
 }

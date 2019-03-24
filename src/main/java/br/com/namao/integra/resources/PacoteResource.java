@@ -25,9 +25,9 @@ public class PacoteResource {
         return ResponseEntity.ok(pacoteService.listar().collect(Collectors.toList()));
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Pacote> pessoa(@PathVariable(name = "id") Long id) {
-        return ResponseEntity.ok(pacoteService.buscarPorId(id));
-    }
+//    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<Pacote> pessoa(@PathVariable(name = "id") Long id) {
+//        return ResponseEntity.ok(pacoteService.buscarPorId(id));
+//    }
 
 }

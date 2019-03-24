@@ -1,7 +1,7 @@
 package br.com.namao.integra.services;
 
 import br.com.namao.integra.models.entity.Item;
-import br.com.namao.integra.repositorys.ItemRepository;
+import br.com.namao.integra.repositories.ItemRepository;
 import org.springframework.stereotype.Service;
 
 @Service

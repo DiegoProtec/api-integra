@@ -1,7 +1,7 @@
 package br.com.namao.integra.services;
 
 import br.com.namao.integra.models.entity.Pacote;
-import br.com.namao.integra.repositorys.PacoteRepository;
+import br.com.namao.integra.repositories.PacoteRepository;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -21,11 +21,10 @@ public abstract class AbstractService<E extends BaseEntity<I>, I extends Seriali
     }
 
     public E buscarPorId(I id) {
-        return repository.findById(id).get();
+        return repository.findById(id).orElse(null);
     }
 
-
-    protected Stream<E> toStream(Iterable<E> iterable) {
+    private Stream<E> toStream(Iterable<E> iterable) {
         return StreamSupport.stream(iterable.spliterator(), false);
     }
 }

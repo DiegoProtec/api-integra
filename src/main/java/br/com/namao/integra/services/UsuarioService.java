@@ -1,7 +1,7 @@
 package br.com.namao.integra.services;
 
 import br.com.namao.integra.models.entity.Usuario;
-import br.com.namao.integra.repositorys.UsuarioRepository;
+import br.com.namao.integra.repositories.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 @Service

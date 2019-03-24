@@ -25,9 +25,9 @@ public class ItemResource {
         return ResponseEntity.ok(itemService.listar().collect(Collectors.toList()));
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Item> item(@PathVariable(name = "id") Long id) {
-        return ResponseEntity.ok(itemService.buscarPorId(id));
-    }
+//    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<Item> item(@PathVariable(name = "id") Long id) {
+//        return ResponseEntity.ok(itemService.buscarPorId(id));
+//    }
 
 }

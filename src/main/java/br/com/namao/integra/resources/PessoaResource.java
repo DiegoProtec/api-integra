@@ -27,10 +27,10 @@ public class PessoaResource {
         return ResponseEntity.ok(pessoaService.listar().collect(toList()));
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Pessoa> pessoa(@PathVariable(name = "id") Long id) {
-        return ResponseEntity.ok(pessoaService.buscarPorId(id));
-    }
+//    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<Pessoa> pessoa(@PathVariable(name = "id") Long id) {
+//        return ResponseEntity.ok(pessoaService.buscarPorId(id));
+//    }
 
 }
 
