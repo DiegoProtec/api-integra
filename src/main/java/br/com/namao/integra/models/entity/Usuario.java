@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Table(name = "TB_USUARIO")
 public class Usuario extends BaseEntity<Long> {
 
-    public static final String ID_USUARIO = "COD_USUARIO";
+    public static final String ID_USUARIO = "CO_SEQ_USUARIO";
 
     @Id
     @Column(name = ID_USUARIO)

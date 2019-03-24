@@ -15,10 +15,11 @@ import java.util.Set;
 @Table(name = "TB_PACOTE")
 public class Pacote extends BaseEntity<Long> {
 
-    public static final String ID_PACOTE = "COD_PACOTE";
+    public static final String ID_PACOTE = "CO_SEQ_PACOTE";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_GENERATOR_PACOTE")
+    @SequenceGenerator(name = "SEQ_GENERATOR_PACOTE", sequenceName = "SQ_PACOTE_COSEQPACOTE", allocationSize = 1, schema = "INTEGRADB")
     @Column(name = ID_PACOTE)
     private Long id;
 
