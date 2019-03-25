@@ -14,5 +14,13 @@ spring:
           use_jdbc_metadata_defaults: false
         show_sql: true
 
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+
+#  messages:
+#    basename: messages/messages_pt
+#    encoding: UTF-8
+
 server:
   port: 8090

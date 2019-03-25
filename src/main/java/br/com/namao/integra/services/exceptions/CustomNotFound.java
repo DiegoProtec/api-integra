@@ -1,4 +1,4 @@
-package br.com.namao.integra.advices.exceptions;
+package br.com.namao.integra.services.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

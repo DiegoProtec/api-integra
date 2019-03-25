@@ -1,8 +1,8 @@
 package br.com.namao.integra.services;
 
-import br.com.namao.integra.advices.exceptions.CustomNotFound;
 import br.com.namao.integra.models.entity.Endereco;
 import br.com.namao.integra.repositories.EnderecoRepository;
+import br.com.namao.integra.services.exceptions.CustomNotFound;
 import org.springframework.stereotype.Service;
 
 @Service
