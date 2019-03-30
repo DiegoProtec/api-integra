@@ -1,13 +1,12 @@
 package br.com.namao.integra.models.entities;
 
+import br.com.namao.integra.models.validators.CEP;
 import br.com.namao.integra.models.validators.NOME;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,7 +17,7 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "TB_CLIENTE")
-@SequenceGenerator(name = "SEQ_GENERATOR_CLIENTE", sequenceName = "SQ_ENDERECO_COSEQCLIENTE", allocationSize = 1, schema = "INTEGRADB")
+@SequenceGenerator(name = "SEQ_GENERATOR_CLIENTE", sequenceName = "SQ_CLIENTE_COSEQCLIENTE", allocationSize = 1, schema = "INTEGRADB")
 public class Cliente extends BaseEntity<Long> {
 
     private static final String ID_CLIENTE = "CO_SEQ_CLIENTE";
@@ -28,34 +27,48 @@ public class Cliente extends BaseEntity<Long> {
     @Column(name = ID_CLIENTE)
     private Long id;
 
-    @NotNull(message = "O campo é obrigatório.")
-    @NOME
+    @NotNull(message = "O campo nome é obrigatório.")
+    @NOME(message = "Nome inválido.")
     @Column(name = "DS_NOME", length = 100, nullable = false)
     private String nome;
 
-    @NotNull(message = "O campo é obrigatório.")
-    @Email(message = "Email inválido")
-    @Column(name = "DS_EMAIL", nullable = false)
-    private String email;
-
-    @NotNull(message = "O campo é obrigatório.")
-    @CPF(message = "CPF inválido")
+    @NotNull(message = "O campo cpf é obrigatório.")
+    @CPF(message = "CPF inválido.")
     @Column(name = "DS_CPF", length = 11, nullable = false)
     private String cpf;
 
-    @NotNull(message = "O campo é obrigatório.")
-    @OneToOne(cascade = CascadeType.ALL, optional = false)
-    private Endereco endereco;
+    @NotNull(message = "O campo cep é obrigatório.")
+    @CEP(message = "CEP inválido.")
+    @Column(name = "DS_CEP", length = 8, nullable = false)
+    private String cep;
+
+    @NotNull(message = "O campo estado é obrigatório.")
+    @Column(name = "DS_UF", nullable = false)
+    private String uf;
+
+    @NotNull(message = "O campo cidade é obrigatório.")
+    @Column(name = "DS_CIDADE", nullable = false)
+    private String cidade;
+
+    @NotNull(message = "O campo bairro é obrigatório.")
+    @Column(name = "DS_BAIRRO", nullable = false)
+    private String bairro;
+
+    @NotNull(message = "O campo logradouro é obrigatório.")
+    @Column(name = "DS_LOGRADOURO", nullable = false)
+    private String logradouro;
+
+    @Column(name = "DS_COMPLEMENTO")
+    private String complemento;
 
     @Builder.Default
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    }, fetch = FetchType.EAGER)
-    @JoinTable(name = "RL_CLIENTE_TELEFONE",
-            joinColumns = @JoinColumn(name = ID_CLIENTE),
-            inverseJoinColumns = @JoinColumn(name = Telefone.ID_TELEFONE)
-    )
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinTable(name = "RL_CLIENTE_TELEFONE", joinColumns = @JoinColumn(name = ID_CLIENTE), inverseJoinColumns = @JoinColumn(name = Telefone.ID_TELEFONE))
     private Set<Telefone> telefones = new HashSet<>();
+
+    @Builder.Default
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinTable(name = "RL_CLIENTE_EMAIL", joinColumns = @JoinColumn(name = ID_CLIENTE), inverseJoinColumns = @JoinColumn(name = EmailEntity.ID_EMAIL))
+    private Set<EmailEntity> emails = new HashSet<>();
 
 }

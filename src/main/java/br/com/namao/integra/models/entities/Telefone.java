@@ -1,12 +1,11 @@
 package br.com.namao.integra.models.entities;
 
 import br.com.namao.integra.models.enums.TipoTelefoneEnum;
-import com.vladmihalcea.hibernate.type.basic.PostgreSQLEnumType;
+import br.com.namao.integra.models.validators.TELEFONE;
 import lombok.*;
-import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,8 +16,8 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "TB_TELEFONE")
-@TypeDef(name = "pgsql_enum", typeClass = PostgreSQLEnumType.class)
-@SequenceGenerator(name = "SEQ_GENERATOR_TELEFONE", sequenceName = "SQ_ENDERECO_COSEQTELEFONE", allocationSize = 1, schema = "INTEGRADB")
+@SequenceGenerator(name = "SEQ_GENERATOR_TELEFONE", sequenceName = "SQ_TELEFONE_COSEQTELEFONE", allocationSize = 1, schema = "INTEGRADB")
+@TELEFONE
 public class Telefone extends BaseEntity<Long> {
 
     public static final String ID_TELEFONE = "CO_SEQ_TELEFONE";
@@ -28,12 +27,13 @@ public class Telefone extends BaseEntity<Long> {
     @Column(name = ID_TELEFONE)
     private Long id;
 
-    @Column(name = "DS_TELEFONE", nullable = false)
+    @NotNull(message = "O campo telefone é obrigatório.")
+    @Column(name = "DS_TELEFONE", length = 11, nullable = false)
     private String telefone;
 
+    @NotNull(message = "O campo tipo de telefone é obrigatório.")
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "TIPO_TELEFONE", nullable = false)
-    @Type(type = "pgsql_enum")
+    @Column(name = "TIPO_TELEFONE", nullable = false)
     private TipoTelefoneEnum tipoTelefone;
 
     @Builder.Default

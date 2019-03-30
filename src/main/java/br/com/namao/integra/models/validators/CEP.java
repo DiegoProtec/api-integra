@@ -11,9 +11,7 @@ import java.lang.annotation.*;
 public @interface CEP {
 
     String message() default "Cep inválido: somente números; 8 caracteres";
-
     Class<?>[] groups() default {};
-
     Class<? extends Payload>[] payload() default {};
 
 }

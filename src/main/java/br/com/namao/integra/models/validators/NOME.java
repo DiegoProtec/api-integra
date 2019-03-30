@@ -11,8 +11,7 @@ import java.lang.annotation.*;
 public @interface NOME {
 
     String message() default "O campo deve conter 3 e no máximo 100 caracteres dos tipos: letras, números e espaços.";
-
     Class<?>[] groups() default {};
-
     Class<? extends Payload>[] payload() default {};
+
 }

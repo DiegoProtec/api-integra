@@ -4,7 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -17,11 +16,21 @@ public class ClienteDTO implements Serializable {
 
     private String nome;
 
-    private String email;
+    private EmailDTO email;
 
     private String cpf;
 
-    private EnderecoDTO endereco;
+    private String cep;
+
+    private String uf;
+
+    private String cidade;
+
+    private String bairro;
+
+    private String logradouro;
+
+    private String complemento;
 
     private Set<TelefoneDTO> telefones;
 
