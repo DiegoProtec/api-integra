@@ -32,7 +32,7 @@ public class Cliente extends BaseEntity<Long> {
     @Column(name = "DS_CPF")
     private String cpf;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 
     @ManyToMany(cascade = {
