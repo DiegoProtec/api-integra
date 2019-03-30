@@ -1,4 +1,4 @@
-package br.com.namao.integra.models.dto;
+package br.com.namao.integra.models.dtos;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,12 +9,10 @@ import java.io.Serializable;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class PessoaDTO implements Serializable {
-
-    private String cpf;
-
-    private String nome;
+public class TelefoneDTO implements Serializable {
 
     private String telefone;
+
+    private String tipoTelefone;
 
 }

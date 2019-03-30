@@ -1,6 +1,6 @@
 package br.com.namao.integra.services;
 
-import br.com.namao.integra.models.entity.BaseEntity;
+import br.com.namao.integra.models.entities.BaseEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.io.Serializable;

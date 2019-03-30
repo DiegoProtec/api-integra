@@ -1,4 +1,4 @@
-package br.com.namao.integra.models.dto;
+package br.com.namao.integra.models.dtos;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,16 +11,18 @@ import java.io.Serializable;
 @EqualsAndHashCode
 public class EnderecoDTO implements Serializable {
 
-    private String rua;
+    private static final long serialVersionUID = 2886799079215670016L;
+
+    private String cep;
+
+    private String logradouro;
 
     private String complemento;
-
-    private String numero;
 
     private String bairro;
 
     private String cidade;
 
-    private String estado;
+    private String uf;
 
 }

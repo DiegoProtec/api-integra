@@ -1,4 +1,4 @@
-package br.com.namao.integra.models.entity;
+package br.com.namao.integra.models.entities;
 
 import java.io.Serializable;
 
