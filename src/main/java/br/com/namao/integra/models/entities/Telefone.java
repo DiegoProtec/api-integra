@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(toBuilder = true)
+@Builder
 @Entity
 @Table(name = "TB_TELEFONE")
 @TypeDef(name = "pgsql_enum", typeClass = PostgreSQLEnumType.class)
@@ -28,14 +28,15 @@ public class Telefone extends BaseEntity<Long> {
     @Column(name = ID_TELEFONE)
     private Long id;
 
-    @Column(name = "DS_TELEFONE")
+    @Column(name = "DS_TELEFONE", nullable = false)
     private String telefone;
 
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "post_status_info")
+    @Column(columnDefinition = "TIPO_TELEFONE", nullable = false)
     @Type(type = "pgsql_enum")
     private TipoTelefoneEnum tipoTelefone;
 
+    @Builder.Default
     @ManyToMany(mappedBy = "telefones")
     private Set<Cliente> clientes = new HashSet<>();
 
