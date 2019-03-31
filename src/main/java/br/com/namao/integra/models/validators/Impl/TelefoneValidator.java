@@ -21,7 +21,7 @@ public class TelefoneValidator implements ConstraintValidator<Telefone, br.com.n
             if (value.getTipoTelefone() == TipoTelefoneEnum.CELULAR) {
                 setValidationErrorMessage(context, "Telefone deve conter 11 caracteres.");
             } else {
-                setValidationErrorMessage(context, "Telefone deve conter 9 caracteres");
+                setValidationErrorMessage(context, "Telefone deve conter 10 caracteres");
             }
             return true;
         } else {

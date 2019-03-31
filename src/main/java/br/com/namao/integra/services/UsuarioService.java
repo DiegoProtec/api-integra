@@ -25,6 +25,7 @@ public class UsuarioService extends AbstractCrudService<Usuario, Long, UsuarioRe
     public Usuario buscarPorId(Long id) {
         return repository
                 .findById(id)
+                .map(UsuarioService::addRole)
                 .orElseThrow(() -> new CustomNotFound("Usuário, código: " + id + ", não encontrado."));
     }
 

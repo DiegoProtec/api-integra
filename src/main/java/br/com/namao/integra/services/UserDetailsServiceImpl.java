@@ -24,7 +24,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Usuario usuario = this.usuarioService.findByUsuario(username);
-        return new UserSS(usuario.getId(), usuario.getUsuario(), usuario.getSenha(), usuario.getRoles().stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
+        return new UserSS(usuario.getId(), usuario.getSenha(), usuario.getUsuario(), usuario.getRoles().stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
     }
 
 }

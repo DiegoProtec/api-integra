@@ -18,8 +18,8 @@ public class UserSS implements UserDetails {
     private static final long serialVersionUID = -4832705981860902149L;
 
     private Long id;
-    private String usuario;
     private String senha;
+    private String usuario;
 
     private Collection<? extends GrantedAuthority> authorities;
 
