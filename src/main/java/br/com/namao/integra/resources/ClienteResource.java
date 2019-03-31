@@ -25,7 +25,6 @@ public class ClienteResource {
         return ResponseEntity.ok(clienteService.listar().collect(Collectors.toList()));
     }
 
-//    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Cliente> cliente(@PathVariable(name = "id") Long id) {
         return ResponseEntity.ok(clienteService.buscarPorId(id));

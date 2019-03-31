@@ -1,8 +1,6 @@
 package br.com.namao.integra.services;
 
-import br.com.namao.integra.config.security.UserSS;
 import br.com.namao.integra.models.entities.Usuario;
-import br.com.namao.integra.models.enums.PerfilEnum;
 import br.com.namao.integra.repositories.UsuarioRepository;
 import br.com.namao.integra.services.exceptions.AuthorizationException;
 import br.com.namao.integra.services.exceptions.CustomNotFound;
@@ -23,8 +21,7 @@ public class UsuarioService extends AbstractCrudService<Usuario, Long, UsuarioRe
 
     @Override
     public Usuario buscarPorId(Long id) {
-        UserSS userSS = UserService.userSS();
-        if (userSS != null && !userSS.hasRole(PerfilEnum.ADMIN) && !id.equals(userSS.getId())) {
+        if (!UserService.userSS().equals("admin")) {
             throw new AuthorizationException("Acesso negado");
         }
         return repository

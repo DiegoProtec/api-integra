@@ -1,15 +1,14 @@
 package br.com.namao.integra.services;
 
-import br.com.namao.integra.config.security.UserSS;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-public class UserService {
+class UserService {
 
-    public static UserSS userSS() {
+    static String userSS() {
         try {
-            return (UserSS) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            return SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
         } catch (Exception e) {
-            return null;
+            return "";
         }
     }
 }
