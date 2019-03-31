@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 public class JWTUtil {
 
     private static final long EXPIRATION_LIMIT = 30;
-
     private Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
     String generateToken(String username) {

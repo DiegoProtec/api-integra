@@ -3,7 +3,6 @@ package br.com.namao.integra.services;
 import br.com.namao.integra.config.security.UserSS;
 import br.com.namao.integra.models.entities.Usuario;
 import br.com.namao.integra.models.enums.RoleEnum;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,8 +17,11 @@ import java.util.stream.Collectors;
 @Service("userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
     private UsuarioService usuarioService;
+
+    public UserDetailsServiceImpl(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 
     @Override
     @Transactional(readOnly = true)

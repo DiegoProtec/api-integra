@@ -1,6 +1,5 @@
 package br.com.namao.integra.models.dtos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,9 +11,10 @@ import java.io.Serializable;
 @EqualsAndHashCode
 public class UsuarioDTO implements Serializable {
 
+    private static final long serialVersionUID = -4705580409173447974L;
+
     private String usuario;
 
-    @JsonIgnore
     private String senha;
 
 }
