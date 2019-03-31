@@ -1,8 +1,8 @@
 package br.com.namao.integra.models.entities;
 
-import br.com.namao.integra.models.validators.CEP;
+import br.com.namao.integra.models.validators.Cep;
 import br.com.namao.integra.models.validators.MinimumOne;
-import br.com.namao.integra.models.validators.NOME;
+import br.com.namao.integra.models.validators.Nome;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -29,7 +29,7 @@ public class Cliente extends BaseEntity<Long> {
     private Long id;
 
     @NotNull(message = "O campo nome é obrigatório.")
-    @NOME(message = "Nome inválido.")
+    @Nome(message = "Nome inválido.")
     @Column(name = "DS_NOME", length = 100, nullable = false)
     private String nome;
 
@@ -39,7 +39,7 @@ public class Cliente extends BaseEntity<Long> {
     private String cpf;
 
     @NotNull(message = "O campo cep é obrigatório.")
-    @CEP(message = "CEP inválido.")
+    @Cep(message = "Cep inválido.")
     @Column(name = "DS_CEP", length = 8, nullable = false)
     private String cep;
 
@@ -70,8 +70,8 @@ public class Cliente extends BaseEntity<Long> {
 
     @Builder.Default
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
-    @JoinTable(name = "RL_CLIENTE_EMAIL", joinColumns = @JoinColumn(name = ID_CLIENTE), inverseJoinColumns = @JoinColumn(name = EmailEntity.ID_EMAIL))
+    @JoinTable(name = "RL_CLIENTE_EMAIL", joinColumns = @JoinColumn(name = ID_CLIENTE), inverseJoinColumns = @JoinColumn(name = Email.ID_EMAIL))
     @MinimumOne
-    private Set<EmailEntity> emails = new HashSet<>();
+    private Set<Email> emails = new HashSet<>();
 
 }

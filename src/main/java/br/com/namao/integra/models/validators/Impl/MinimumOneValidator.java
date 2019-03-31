@@ -24,7 +24,7 @@ public class MinimumOneValidator implements ConstraintValidator<MinimumOne, Set<
             msg = "Pelo menos um telefone deve ser registrado.";
         }
 
-        if (value.getClass().toString().equals("EmailEntity")) {
+        if (value.getClass().toString().equals("Email")) {
             msg = "Pelo menos um email deve ser registrado.";
         }
         context.buildConstraintViolationWithTemplate(msg).addConstraintViolation();

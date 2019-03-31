@@ -1,5 +1,6 @@
-package br.com.namao.integra.services.exceptions;
+package br.com.namao.integra.handlers.exceptions;
 
+import br.com.namao.integra.services.exceptions.CustomNotFound;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

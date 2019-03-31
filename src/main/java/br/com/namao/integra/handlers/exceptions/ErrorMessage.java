@@ -1,4 +1,4 @@
-package br.com.namao.integra.services.exceptions;
+package br.com.namao.integra.handlers.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;

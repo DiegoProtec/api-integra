@@ -1,7 +1,6 @@
 package br.com.namao.integra.models.entities;
 
 import br.com.namao.integra.models.enums.TipoTelefoneEnum;
-import br.com.namao.integra.models.validators.TELEFONE;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,7 +16,7 @@ import java.util.Set;
 @Entity
 @Table(name = "TB_TELEFONE")
 @SequenceGenerator(name = "SEQ_GENERATOR_TELEFONE", sequenceName = "SQ_TELEFONE_COSEQTELEFONE", allocationSize = 1, schema = "INTEGRADB")
-@TELEFONE
+@br.com.namao.integra.models.validators.Telefone
 public class Telefone extends BaseEntity<Long> {
 
     public static final String ID_TELEFONE = "CO_SEQ_TELEFONE";
