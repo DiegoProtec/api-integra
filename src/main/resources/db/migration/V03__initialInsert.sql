@@ -1,2 +1,2 @@
-INSERT INTO integradb.tb_usuario (co_seq_usuario, role, ds_senha, ds_usuario) VALUES (1, 'COMUM', '123456', 'comum');
-INSERT INTO integradb.tb_usuario (co_seq_usuario, role, ds_senha, ds_usuario) VALUES (2, 'ADMIN', '123456', 'admin');
+INSERT INTO integradb.tb_usuario (co_seq_usuario, role, ds_senha, ds_usuario) VALUES (1, 'COMUM', '$2a$10$m0AC8yVpbM8yqR.dAxmQB.6Rpyzb66FG2EoS21upCYYSoNPxS7S.a', 'comum');
+INSERT INTO integradb.tb_usuario (co_seq_usuario, role, ds_senha, ds_usuario) VALUES (2, 'ADMIN', '$2a$10$m0AC8yVpbM8yqR.dAxmQB.6Rpyzb66FG2EoS21upCYYSoNPxS7S.a', 'admin');

@@ -29,8 +29,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
             UsuarioDTO dto = new ObjectMapper().readValue(request.getInputStream(), UsuarioDTO.class);
-            System.out.println("----------------------->"+dto.getUsuario());
-            System.out.println("\n----------------------->"+dto.getSenha());
             UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(dto.getUsuario(), dto.getSenha(), new ArrayList<>());
             return authenticationManager.authenticate(authToken);
         } catch (IOException e) {
@@ -41,9 +39,9 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         String username = ((UserSS) authResult.getPrincipal()).getUsername();
-        String token = jwtUtil.generateToken(username);
+        String pass = ((UserSS) authResult.getPrincipal()).getPassword();
+        String token = jwtUtil.generateToken(username, pass);
         response.addHeader("Authorization", "Bearer " + token);
-        response.addHeader("access-control-expose-headers", "Authorization");
     }
 
 }

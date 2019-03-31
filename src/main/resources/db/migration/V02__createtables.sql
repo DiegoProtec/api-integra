@@ -91,7 +91,7 @@ create table tb_usuario
         constraint tb_usuario_pkey
             primary key,
     role           varchar(15) not null,
-    ds_senha       varchar(15) not null,
+    ds_senha       varchar(255) not null,
     ds_usuario     varchar(15) not null
         constraint uk_8iyqbuntytfrfqjkx5fv7ingk
             unique

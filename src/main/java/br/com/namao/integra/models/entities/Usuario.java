@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -31,11 +32,14 @@ public class Usuario extends BaseEntity<Long> {
 
     @NotNull(message = "O campo senha é obrigatório.")
     @Size(min = 3, max = 15, message = "Deve conter entre 3 e 16 caracteres")
-    @Column(name = "DS_SENHA", length = 15, nullable = false)
+    @Column(name = "DS_SENHA", nullable = false)
     private String senha;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "ROLE", length = 15, nullable = false)
     private RoleEnum role;
+
+    @Transient
+    private Set<String> roles;
 
 }
