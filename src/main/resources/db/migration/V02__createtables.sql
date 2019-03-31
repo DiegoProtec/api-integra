@@ -87,16 +87,26 @@ alter table rl_cliente_telefone
 
 create table tb_usuario
 (
-    co_seq_usuario bigint      not null
+    co_seq_usuario bigint       not null
         constraint tb_usuario_pkey
             primary key,
-    role           varchar(15) not null,
-    ds_senha       varchar(255) not null,
-    ds_usuario     varchar(15) not null
+    ds_senha       varchar(300) not null,
+    ds_usuario     varchar(16)  not null
         constraint uk_8iyqbuntytfrfqjkx5fv7ingk
             unique
 );
 
 alter table tb_usuario
+    owner to integra;
+
+create table tb_perfil
+(
+    usuario_co_seq_usuario bigint not null
+        constraint fkdtpt4esqy1ehvcafuktknhvfy
+            references tb_usuario,
+    perfis                 integer
+);
+
+alter table tb_perfil
     owner to integra;
 

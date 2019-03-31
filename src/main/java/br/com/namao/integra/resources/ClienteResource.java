@@ -5,6 +5,7 @@ import br.com.namao.integra.services.ClienteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ public class ClienteResource {
         return ResponseEntity.ok(clienteService.listar().collect(Collectors.toList()));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Cliente> cliente(@PathVariable(name = "id") Long id) {
         return ResponseEntity.ok(clienteService.buscarPorId(id));

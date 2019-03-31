@@ -5,8 +5,6 @@ import br.com.namao.integra.repositories.UsuarioRepository;
 import br.com.namao.integra.services.exceptions.CustomNotFound;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-
 @Service
 public class UsuarioService extends AbstractCrudService<Usuario, Long, UsuarioRepository> {
 
@@ -17,7 +15,6 @@ public class UsuarioService extends AbstractCrudService<Usuario, Long, UsuarioRe
 
     Usuario findByUsuario(String usuario) {
         return repository.findByUsuario(usuario)
-                .map(UsuarioService::addRole)
                 .orElseThrow(() -> new CustomNotFound("Usuário: " + usuario + ", não encontrado."));
     }
 
@@ -25,14 +22,7 @@ public class UsuarioService extends AbstractCrudService<Usuario, Long, UsuarioRe
     public Usuario buscarPorId(Long id) {
         return repository
                 .findById(id)
-                .map(UsuarioService::addRole)
                 .orElseThrow(() -> new CustomNotFound("Usuário, código: " + id + ", não encontrado."));
-    }
-
-    private static Usuario addRole(Usuario usuario) {
-        usuario.setRoles(new HashSet<>());
-        usuario.getRoles().add(usuario.getRole().name());
-        return usuario;
     }
 
 }

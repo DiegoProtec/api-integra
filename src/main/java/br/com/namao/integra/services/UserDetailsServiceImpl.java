@@ -2,6 +2,7 @@ package br.com.namao.integra.services;
 
 import br.com.namao.integra.config.security.UserSS;
 import br.com.namao.integra.models.entities.Usuario;
+import br.com.namao.integra.models.enums.PerfilEnum;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,7 +25,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Usuario usuario = this.usuarioService.findByUsuario(username);
-        return new UserSS(usuario.getId(), usuario.getSenha(), usuario.getUsuario(), usuario.getRoles().stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
+        return new UserSS(usuario.getId(), usuario.getUsuario(), usuario.getSenha(), usuario.getPerfis().stream().map(PerfilEnum::getDescricao).map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
     }
 
 }

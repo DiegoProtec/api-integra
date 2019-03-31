@@ -1,12 +1,13 @@
 package br.com.namao.integra.models.entities;
 
-import br.com.namao.integra.models.enums.RoleEnum;
+import br.com.namao.integra.models.enums.PerfilEnum;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -26,20 +27,20 @@ public class Usuario extends BaseEntity<Long> {
     private Long id;
 
     @NotNull(message = "O campo usuario é obrigatório.")
-    @Size(min = 3, max = 15, message = "Deve conter entre 3 e 16 caracteres")
-    @Column(name = "DS_USUARIO", length = 15, nullable = false, unique = true)
+    @Column(name = "DS_USUARIO", length = 16, nullable = false, unique = true)
     private String usuario;
 
     @NotNull(message = "O campo senha é obrigatório.")
-    @Size(min = 3, max = 15, message = "Deve conter entre 3 e 16 caracteres")
-    @Column(name = "DS_SENHA", nullable = false)
+    @Column(name = "DS_SENHA", length = 300, nullable = false)
     private String senha;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "ROLE", length = 15, nullable = false)
-    private RoleEnum role;
+    @Builder.Default
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "TB_PERFIL")
+    private Set<Integer> perfis = new HashSet<>();
 
-    @Transient
-    private Set<String> roles;
+    public Set<PerfilEnum> getPerfis() {
+        return perfis.stream().map(PerfilEnum::toEnum).collect(Collectors.toSet());
+    }
 
 }
