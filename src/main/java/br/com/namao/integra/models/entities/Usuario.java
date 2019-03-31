@@ -27,7 +27,7 @@ public class Usuario extends BaseEntity<Long> {
 
     @NotNull(message = "O campo usuario é obrigatório.")
     @Size(min = 3, max = 15, message = "Deve conter entre 3 e 16 caracteres")
-    @Column(name = "DS_USUARIO", nullable = false, unique = true)
+    @Column(name = "DS_USUARIO", length = 15, nullable = false, unique = true)
     private String usuario;
 
     @NotNull(message = "O campo senha é obrigatório.")

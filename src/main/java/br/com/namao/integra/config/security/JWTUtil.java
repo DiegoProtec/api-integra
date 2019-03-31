@@ -17,10 +17,9 @@ public class JWTUtil {
     private static final long EXPIRATION_LIMIT = 30;
     private Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
-    String generateToken(String username, String senha) {
+    String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
-                .setSubject(senha)
                 .setExpiration(getExpirationDate())
                 .signWith(key)
                 .compact();
