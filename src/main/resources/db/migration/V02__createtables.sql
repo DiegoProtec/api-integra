@@ -90,7 +90,7 @@ create table tb_usuario
     co_seq_usuario bigint      not null
         constraint tb_usuario_pkey
             primary key,
-    role           integer     not null,
+    role           varchar(15) not null,
     ds_senha       varchar(15) not null,
     ds_usuario     varchar(15) not null
         constraint uk_8iyqbuntytfrfqjkx5fv7ingk

@@ -8,8 +8,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioService extends AbstractCrudService<Usuario, Long, UsuarioRepository> {
 
+
     UsuarioService(UsuarioRepository repository) {
         super(repository);
+    }
+
+    Usuario findByUsuario(String usuario) {
+        return repository.findByUsuario(usuario).orElseThrow(RuntimeException::new);
     }
 
     @Override

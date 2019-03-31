@@ -2,16 +2,16 @@ package br.com.namao.integra.models.enums;
 
 public enum RoleEnum {
 
-    COMUM(1L),
-    ADMIN(2L);
+    COMUM("COMUM"),
+    ADMIN("ADMIN");
 
-    private final Long valor;
+    private final String valor;
 
-    private RoleEnum(Long valor) {
+    private RoleEnum(String valor) {
         this.valor = valor;
     }
 
-    public Long getValue() {
+    public String getValue() {
         return valor;
     }
 

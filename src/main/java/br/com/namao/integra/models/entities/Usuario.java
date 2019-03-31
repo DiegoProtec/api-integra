@@ -34,11 +34,8 @@ public class Usuario extends BaseEntity<Long> {
     @Column(name = "DS_SENHA", length = 15, nullable = false)
     private String senha;
 
-    @Transient
-    private String token;
-
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "ROLE", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "ROLE", length = 15, nullable = false)
     private RoleEnum role;
 
 }
