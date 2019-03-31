@@ -1,10 +1,12 @@
 package br.com.namao.integra.config.security;
 
+import br.com.namao.integra.models.enums.PerfilEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -60,5 +62,9 @@ public class UserSS implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public boolean hasRole(PerfilEnum perfilEnum) {
+        return getAuthorities().contains(new SimpleGrantedAuthority(perfilEnum.getDescricao()));
     }
 }

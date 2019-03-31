@@ -5,6 +5,7 @@ import br.com.namao.integra.config.security.JWTAuthorizationFilter;
 import br.com.namao.integra.config.security.JWTUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,6 +25,10 @@ import java.util.Arrays;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private static final String[] PUBLIC_MATCHERS = {
+            "/usuarios/**"
+    };
+
     private UserDetailsService userDetailsService;
     private JWTUtil jwtUtil;
 
@@ -39,6 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers(HttpMethod.POST, PUBLIC_MATCHERS).permitAll()
+                .antMatchers(HttpMethod.GET, PUBLIC_MATCHERS).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil))
