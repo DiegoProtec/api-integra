@@ -1,6 +1,7 @@
 package br.com.namao.integra.models.entities;
 
 import br.com.namao.integra.models.validators.CEP;
+import br.com.namao.integra.models.validators.MinimumOne;
 import br.com.namao.integra.models.validators.NOME;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
@@ -64,11 +65,13 @@ public class Cliente extends BaseEntity<Long> {
     @Builder.Default
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "RL_CLIENTE_TELEFONE", joinColumns = @JoinColumn(name = ID_CLIENTE), inverseJoinColumns = @JoinColumn(name = Telefone.ID_TELEFONE))
+    @MinimumOne
     private Set<Telefone> telefones = new HashSet<>();
 
     @Builder.Default
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "RL_CLIENTE_EMAIL", joinColumns = @JoinColumn(name = ID_CLIENTE), inverseJoinColumns = @JoinColumn(name = EmailEntity.ID_EMAIL))
+    @MinimumOne
     private Set<EmailEntity> emails = new HashSet<>();
 
 }

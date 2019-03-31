@@ -1,19 +1,21 @@
 package br.com.namao.integra.models.validators;
 
-import br.com.namao.integra.models.validators.Impl.NomeValidator;
+import br.com.namao.integra.models.validators.Impl.MinimumOneValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;
 
-@Constraint(validatedBy = NomeValidator.class)
+@Constraint(validatedBy = MinimumOneValidator.class)
 @Documented
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface NOME {
+public @interface MinimumOne {
 
-    String message() default "O campo deve conter 3 e no máximo 100 caracteres dos tipos: letras, números e espaços.";
+    String message() default "Pelo menos um deve ser registrado.";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 
 }

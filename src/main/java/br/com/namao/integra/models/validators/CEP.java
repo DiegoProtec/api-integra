@@ -1,5 +1,7 @@
 package br.com.namao.integra.models.validators;
 
+import br.com.namao.integra.models.validators.Impl.CepValidator;
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;

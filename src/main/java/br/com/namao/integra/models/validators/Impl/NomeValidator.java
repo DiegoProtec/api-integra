@@ -1,4 +1,6 @@
-package br.com.namao.integra.models.validators;
+package br.com.namao.integra.models.validators.Impl;
+
+import br.com.namao.integra.models.validators.NOME;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

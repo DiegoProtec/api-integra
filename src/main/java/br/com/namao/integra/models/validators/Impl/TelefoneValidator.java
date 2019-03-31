@@ -1,7 +1,8 @@
-package br.com.namao.integra.models.validators;
+package br.com.namao.integra.models.validators.Impl;
 
 import br.com.namao.integra.models.entities.Telefone;
 import br.com.namao.integra.models.enums.TipoTelefoneEnum;
+import br.com.namao.integra.models.validators.TELEFONE;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
