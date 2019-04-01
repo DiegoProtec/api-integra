@@ -18,7 +18,7 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "TB_CLIENTE")
-@SequenceGenerator(name = "SEQ_GENERATOR_CLIENTE", sequenceName = "SQ_CLIENTE_COSEQCLIENTE", allocationSize = 1, schema = "INTEGRADB")
+@SequenceGenerator(name = "SEQ_GENERATOR_CLIENTE", sequenceName = "SQ_CLIENTE_COSEQCLIENTE", allocationSize = 1)
 public class Cliente extends BaseEntity<Long> {
 
     private static final String ID_CLIENTE = "CO_SEQ_CLIENTE";

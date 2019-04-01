@@ -17,7 +17,7 @@ import java.util.Set;
 @Entity
 @Table(name = "TB_EMAIL")
 @TypeDef(name = "pgsql_enum", typeClass = PostgreSQLEnumType.class)
-@SequenceGenerator(name = "SEQ_GENERATOR_EMAIL", sequenceName = "SQ_EMAIL_COSEQEMAIL", allocationSize = 1, schema = "INTEGRADB")
+@SequenceGenerator(name = "SEQ_GENERATOR_EMAIL", sequenceName = "SQ_EMAIL_COSEQEMAIL", allocationSize = 1)
 public class Email extends BaseEntity<Long> {
 
     public static final String ID_EMAIL = "CO_SEQ_EMAIL";

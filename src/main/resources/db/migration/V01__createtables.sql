@@ -109,4 +109,3 @@ create table tb_perfil
 
 alter table tb_perfil
     owner to integra;
-

@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/integradb?currentSchema=integradb
+    url: jdbc:postgresql://localhost:5432/integradb
     username: integra
     password: integrapass
 

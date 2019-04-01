@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @Builder
 @Entity
 @Table(name = "TB_USUARIO")
-@SequenceGenerator(name = "SEQ_GENERATOR_USUARIO", sequenceName = "SQ_USUARIO_COSEQUSUARIO", allocationSize = 1, schema = "INTEGRADB")
+@SequenceGenerator(name = "SEQ_GENERATOR_USUARIO", sequenceName = "SQ_USUARIO_COSEQUSUARIO", allocationSize = 1)
 public class Usuario extends BaseEntity<Long> {
 
     private static final String ID_USUARIO = "CO_SEQ_USUARIO";

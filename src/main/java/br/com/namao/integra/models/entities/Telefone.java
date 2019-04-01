@@ -15,7 +15,7 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "TB_TELEFONE")
-@SequenceGenerator(name = "SEQ_GENERATOR_TELEFONE", sequenceName = "SQ_TELEFONE_COSEQTELEFONE", allocationSize = 1, schema = "INTEGRADB")
+@SequenceGenerator(name = "SEQ_GENERATOR_TELEFONE", sequenceName = "SQ_TELEFONE_COSEQTELEFONE", allocationSize = 1)
 @br.com.namao.integra.models.validators.Telefone
 public class Telefone extends BaseEntity<Long> {
 
