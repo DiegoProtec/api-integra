@@ -1,0 +1,10 @@
+language: java
+jdk:
+  - oraclejdk8
+services:
+  - postgresql
+before_script:
+  - psql -c "CREATE DATABASE integradb;" -U postgres
+  - psql -c "CREATE USER integra WITH PASSWORD 'integrapass';" -U postgres
+  - psql -c "ALTER USER integra WITH SUPERUSER CREATEROLE CREATEDB REPLICATION;" -U postgres
+  - psql -c "ALTER DATABASE integradb OWNER TO integra;" -U postgres
