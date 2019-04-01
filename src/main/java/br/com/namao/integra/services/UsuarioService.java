@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioService extends AbstractCrudService<Usuario, Long, UsuarioRepository> {
 
-
     UsuarioService(UsuarioRepository repository) {
         super(repository);
     }
